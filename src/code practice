@@ -1,0 +1,206 @@
+ Random rand = new Random();
+        int[] ww = new int[10];
+
+        for (int i = 0; i < ww.length; i++) {
+            ww[i] = rand.nextInt(100);
+            System.out.println(ww[i]);
+        }
+
+        ArrayList<Object> obgList = new ArrayList<>();
+        obgList.add("hello");
+        obgList.add(2);
+        obgList.add(Arrays.asList(arrAA));
+
+        for (Object list : obgList) {
+            System.out.println(list);
+        }
+
+        Week monday1 = Week.MONDAY;
+        System.out.println(monday1.workHours);
+
+
+        String[] arga = new String[5];
+        arga[0] = "one";
+        String[] aa = {"ine", "dad"};
+
+        ArrayList<String> args2 = new ArrayList<>(Arrays.asList(aa));
+        System.out.println(args2);
+
+
+        Week monday = Week.MONDAY;
+        System.out.println(monday);
+
+        List<Integer> listInt = new ArrayList<>();
+        listInt.add(2);
+        listInt.add(3);
+
+        wild(listInt);
+
+        List<Frog> frogList = new ArrayList<>();
+        frogList.add(new Frog("frog one"));
+        frogList.add(new Frog("frog two"));
+        frogList.add(new Frog("frog three"));
+
+        for (Frog frogs : frogList) {
+            System.out.println(frogs.name);
+        }
+
+        Frog frogDing = new Frog("static frog");
+        System.out.println(frogDing.name);
+        frogDing.ding();
+
+
+        System.out.println(frogList);
+
+        Say<Integer> integerSay = new Say<>(null);
+        Say<String> stringSay = new Say<>(null);
+
+        integerSay.sayHello(8);
+        stringSay.sayHello("ds");
+
+        print(new Frog("frog with say").say("kva kva"));
+
+        FileReader re = null;
+        try {
+            re = new FileReader("text2");
+            Scanner reScn = new Scanner(re);
+            String ssssss = reScn.nextLine();
+            System.out.println(ssssss);
+        } catch (NoSuchElementException | IOException e) {
+            System.out.println("test catch");
+            System.out.println(e.getMessage());
+        } finally {
+            re.close();
+            System.out.println("Close");
+        }
+
+
+        FileWriter fw = new FileWriter("text2");
+        Scanner s2 = new Scanner(System.in);
+        System.out.println("Type something: ");
+        String scantext = s2.nextLine();
+        fw.write(scantext);
+        fw.append(scantext);
+
+        System.out.println("You type: " + scantext);
+
+        fw.close();
+//        fr.close();
+
+        NumberFormat curr = NumberFormat.getPercentInstance();
+        String e = curr.format(12132141.412421);
+        System.out.println(e);
+
+        int[] arrNum = {1, 2, 3, 4, 5, 6};
+        int o = 1;
+        double math = Math.random() * 10;
+        String tt = "22";
+
+//        Integer.parseInt(tt);
+
+        System.out.println(math);
+
+        String separator = File.separator;
+
+        String str = "C" + separator + "desktop" + separator;
+        System.out.println(str);
+
+        int[][] arrINt = new int[1][3];
+
+        int[][] arrOut = {{1, 2, 3, 4}, {34, 4, 5, 6}};
+
+        System.out.println(Arrays.deepToString(arrOut));
+
+        arrINt[0][0] = 2;
+        arrINt[0][1] = 3;
+        arrINt[0][2] = 4;
+
+        System.out.println(Arrays.deepToString(arrINt));
+
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(2, "two");
+        map.put(3, "three");
+        map.put(4, "four");
+        System.out.println(map);
+
+        map.replace(2, "three");
+        System.out.println(map);
+
+        map.remove(2);
+        System.out.println(map);
+
+        int size = map.size();
+
+        numbers.add(0);
+        numbers.add(41);
+        numbers.add(2);
+
+        Collections.sort(numbers);
+
+        numbers.sort(Comparator.naturalOrder());
+        System.out.println("comp: " + numbers);
+
+        numbers.forEach(number -> System.out.println(number + 2));
+
+        char arr[] = {'w', 'd'};
+
+        char[] arr2 = {'w', 'd'};
+
+        int start = 1;
+        int end = 6;
+
+        char[] copyOf = Arrays.copyOfRange(arr, start, end);
+
+        Arrays.fill(copyOf, (char) '0');
+
+        System.out.println(Arrays.toString(copyOf));
+
+        char x = 'd';
+
+        int foudIndex = Arrays.binarySearch(arr, x);
+
+        System.out.println("Index: " + foudIndex);
+
+        MyThread mt = new MyThread();
+
+        mt.sleep(2000);
+
+    }
+
+
+    public static <T> void print(T value) {
+        System.out.println(value);
+    }
+
+    public static void wild(List<?> list) {
+        System.out.println(list);
+    }
+
+
+//// factorical
+    public static int fac(int n) {
+        if (n == 1)
+            return 1;
+
+        return n * fac(n - 1);
+    }
+
+
+///// fibonacci
+    public static int fib(int n) {
+        if (n <= 1)
+            return n;
+
+        return (fib(n - 1)) + (fib(n - 2));
+    }
+
+
+///////    THREAD
+     class MyThread extends Thread {
+            public void run() {
+                System.out.println("MyThread");
+            }
+        }
